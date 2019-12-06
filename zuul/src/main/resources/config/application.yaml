@@ -1,0 +1,30 @@
+server:
+  port: 8682
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+zuul:
+  routes:
+    test:
+      path: /test/**
+      url: http://127.0.0.1:8673/
+    ribbon:
+      path: /ribbon/**
+      serviceId: rest
+    feign:
+      path: /feign/**
+      serviceId: feign
+#    test-r:
+#      path: /test-r/**
+#      serviceId: test-r
+#  prefix: /v1
+#test-r:
+#  ribbon:
+#    listOfServers: http://127.0.0.1:8673/, http://127.0.0.1:8674/
+#ribbon:
+#  eureka:
+#    enabled: false

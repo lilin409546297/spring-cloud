@@ -1,0 +1,12 @@
+server:
+  port: 8670
+spring:
+  application:
+    name: server
+eureka:
+  client:
+    register-with-eureka: false # 关闭本身注册
+    fetch-registry: false # 是否从server获取注册信息
+    service-url:
+      defaultZone:
+        http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式

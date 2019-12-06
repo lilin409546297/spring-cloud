@@ -1,0 +1,21 @@
+#server:
+#  port: 8080
+spring:
+  profiles:
+    active: dev
+management:
+  server:
+    port: 8888
+  endpoint:
+    env:
+      enabled: false #关闭安全验证
+    health:
+      show-details: always # 总是显示健康详情
+    shutdown:
+      enabled: true # 开启shutdown功能
+  endpoints:
+    web:
+      exposure:
+        include: ["*"] #["health", "info", "beans"] # 需要放开的接口
+swagger:
+  enable: true

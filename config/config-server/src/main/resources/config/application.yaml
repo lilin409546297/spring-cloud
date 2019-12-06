@@ -1,0 +1,24 @@
+server:
+#  port: 8683
+  port: 8684
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+#        native:
+#          search-locations: classpath:/shared # 指定本地配置目录
+        git:
+          uri: http://127.0.0.1/lilin/SpringCloudConfig.git
+          search-paths: shared
+          username: lilin
+          password:
+      label: master
+#  profiles:
+#    active: native # 本地读取配置
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式

@@ -1,0 +1,11 @@
+server:
+  port: 8673
+#  port: 8674
+spring:
+  application:
+    name: client
+eureka:
+  client:
+    service-url:
+      defaultZone:
+        http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式

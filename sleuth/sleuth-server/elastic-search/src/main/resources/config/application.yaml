@@ -1,0 +1,24 @@
+server:
+  port: 8690
+spring:
+  application:
+    name: sleuth-elasticSearch
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false # 关闭自动配置检测，不然会报错
+zipkin:
+  collector:
+    rabbitmq:
+      addresses: 127.0.0.1:5672
+      username: guest
+      password: guest
+  storage:
+    type: elasticsearch
+  elasticsearch:
+    hosts: ["127.0.0.1:9200"]

@@ -1,0 +1,12 @@
+server:
+  port: 8676
+spring:
+  application:
+    name: feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+#feign:
+#  okhttp:
+#    enabled: true

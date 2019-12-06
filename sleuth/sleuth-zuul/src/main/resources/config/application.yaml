@@ -1,0 +1,26 @@
+server:
+  port: 8689
+spring:
+  application:
+    name: sleuth-zuul
+  zipkin:
+#    base-url: http://127.0.0.1:8687/
+    sender:
+      type: rabbit
+  sleuth:
+    sampler:
+      probability: 1.0
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+zuul:
+  routes:
+    sleuth-zuul:
+      path: /sleuthZuul/**
+      serviceId: sleuth-feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
