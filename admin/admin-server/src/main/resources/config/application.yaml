@@ -1,0 +1,25 @@
+server:
+  port: 8691
+spring:
+  application:
+    name: admin-server
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+#  instance:
+#    metadata-map:
+#      user.name: ${spring.security.user.name}
+#      user.password: ${spring.security.user.password}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]
+  endpoint:
+    health:
+      show-details: always

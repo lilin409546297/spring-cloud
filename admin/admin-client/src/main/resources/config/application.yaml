@@ -1,0 +1,26 @@
+server:
+  port: 8692
+spring:
+  application:
+    name: admin-client
+  boot:
+    admin:
+      client:
+        url: ["http://127.0.0.1:8691"] # 配置注册的admin Server服务
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["*"]
+  endpoint:
+    health:
+      show-details: always
+    logfile:
+      external-file: logs/log.log # 这里的配置主要是在admin server中看到日志记录
+logging:
+  path: logs
+  file: logs/log.log # 日志配置
