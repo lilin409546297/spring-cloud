@@ -3,10 +3,10 @@ server:
 spring:
   application:
     name: admin-client
-  boot:
-    admin:
-      client:
-        url: ["http://127.0.0.1:8691"] # 配置注册的admin Server服务
+#  boot:
+#    admin:
+#      client:
+#        url: ["http://127.0.0.1:8691"] # 配置注册的admin Server服务
 eureka:
   client:
     service-url:
