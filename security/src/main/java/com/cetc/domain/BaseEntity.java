@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 
 @MappedSuperclass
+//实体回调监听的时候使用，审计回调，加入相关注解的数据
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 

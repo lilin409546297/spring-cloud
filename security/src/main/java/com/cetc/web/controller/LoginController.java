@@ -11,7 +11,7 @@ public class LoginController {
         return "index";
     }
 
-    @GetMapping("/no-login")
+    @GetMapping("/no-permission")
     public String noLogin() {
         return "401";
     }
