@@ -18,6 +18,7 @@
         <module>config</module>
         <module>sleuth</module>
         <module>admin</module>
+        <module>security</module>
     </modules>
 
     <parent>
