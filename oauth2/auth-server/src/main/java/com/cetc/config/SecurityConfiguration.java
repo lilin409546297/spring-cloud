@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(authDetailsService).passwordEncoder(passwordEncoder);
     }
 
+    //基本没有什么太大的变化
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -41,6 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated()
         .and()
             .formLogin()
+            //注意我这里使用的是自定义的登录页面
             .loginPage("/login.html")
             .loginProcessingUrl("/login")
         .and()
@@ -48,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .deleteCookies("SESSION_AUTH_SERVER");
     }
 
+    //注意加入bean主要是在authentication server的配置需要使用
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {

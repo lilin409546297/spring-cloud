@@ -34,35 +34,45 @@ public class AuthServerConfiguration extends AuthorizationServerConfigurerAdapte
 
     @Bean
     public ClientDetailsService clientDetailsService(HikariDataSource dataSource) {
+        //使用数据库的配置方式
         return new JdbcClientDetailsService(dataSource);
     }
 
     @Bean
     public TokenStore tokenStore(HikariDataSource dataSource) {
+        //token也使用数据的方式，后面会将JWT的使用方式
         return new JdbcTokenStore(dataSource);
     }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
+                //token获取方式
                 .tokenKeyAccess("permitAll()")
+                //检测加入权限
                 .checkTokenAccess("isAuthenticated()")
+                //允许表单认证
                 .allowFormAuthenticationForClients();
 
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        //这里就是具体的授权管理过程了
         clients.withClientDetails(clientDetailsService);
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
+                //这里使用的认证方式为security配置方式
                 .authenticationManager(authenticationManager)
+                //提供get和post的认证方式
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST, HttpMethod.GET)
+                //这里一定要配置userDetailsService，不然刷新token会出错，refresh_token
                 .userDetailsService(authDetailsService)
                 .tokenStore(tokenStore)
+                //自定义认证页面
                 .pathMapping("/oauth/confirm_access", "/oauth/confirm_access");
     }
 

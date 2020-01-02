@@ -3,7 +3,7 @@ server:
   servlet:
     session:
       cookie:
-        name: SESSION_AUTH_SSO
+        name: SESSION_AUTH_SSO #本地避免session冲突
 spring:
   application:
     name: auth-soo

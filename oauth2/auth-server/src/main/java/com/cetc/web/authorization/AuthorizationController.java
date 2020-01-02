@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
+//注意一定要加@SessionAttributes("authorizationRequest")代表这是认证请求
 @SessionAttributes("authorizationRequest")
 public class AuthorizationController {
 
@@ -16,6 +17,7 @@ public class AuthorizationController {
     public String authorization(Map<String, ?> map, HttpServletRequest request) {
         AuthorizationRequest authorizationRequest = (AuthorizationRequest) map.get("authorizationRequest");
         request.setAttribute("clientId", authorizationRequest.getClientId());
+        //这里的scope是一定要的，主要是认证需要传递的数据类型，需要scope
         request.setAttribute("scope", authorizationRequest.getScope());
         return "authorization";
     }
