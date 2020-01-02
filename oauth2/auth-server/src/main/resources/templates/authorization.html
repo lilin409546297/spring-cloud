@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>授权</title>
+</head>
+<body>
+    <form th:action="${#servletContext.getContextPath()} + '/oauth/authorize'" method="post">
+        <p th:text="${clientId}"></p>
+        <input type="hidden" name="user_oauth_approval" value="true">
+        <input type="hidden" name="authorize" value="Authorize">
+        <div th:each="item : ${scope}">
+            <input type="hidden" th:name="'scope.' + ${item}" value="true">
+        </div>
+        <button type="submit">同意授权</button>
+    </form>
+</body>
+</html>
