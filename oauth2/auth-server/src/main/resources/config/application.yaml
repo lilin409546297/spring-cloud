@@ -4,7 +4,7 @@ server:
     context-path: /auth
     session:
       cookie:
-        name: SESSION_AUTH_SERVER
+        name: SESSION_AUTH_SERVER #因为我这里都是本地，所以需要修改会话名称
 spring:
   application:
     name: auth-server
