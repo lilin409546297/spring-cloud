@@ -56,7 +56,6 @@ public class InitData implements CommandLineRunner{
             oauthClientDetailsSSO.setClientId("client_sso");
             oauthClientDetailsSSO.setClientSecret(passwordEncoder.encode("secret_sso"));
             oauthClientDetailsSSO.setAuthorizedGrantTypes("authorization_code");
-            oauthClientDetailsSSO.setResourceIds("auth-sso");
             oauthClientDetailsSSO.setScope("ALL");
             oauthClientDetailsSSO.setAuthorities("ROLE_ADMIN");
             oauthClientDetailsSSO.setWebServerRedirectUri("http://127.0.0.1:8696");

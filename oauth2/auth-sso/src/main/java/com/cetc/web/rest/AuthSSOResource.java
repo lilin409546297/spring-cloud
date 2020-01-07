@@ -1,4 +1,4 @@
-package com.cetc.rest;
+package com.cetc.web.rest;
 
 import com.cetc.service.IAuthSSOService;
 import org.springframework.beans.factory.annotation.Autowired;
