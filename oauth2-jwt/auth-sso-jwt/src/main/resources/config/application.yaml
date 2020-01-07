@@ -1,0 +1,24 @@
+server:
+  port: 8699
+  servlet:
+    session:
+      cookie:
+        name: SESSION_AUTH_SSO_JWT #本地避免session冲突
+spring:
+  application:
+    name: auth-sso-jwt
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+security:
+  oauth2:
+    client:
+      client-id: client_sso_jwt
+      client-secret: secret_sso_jwt
+      grant-type: authorization_code
+      scope: ALL
+      access-token-uri: http://127.0.0.1:8697/auth/oauth/token
+      user-authorization-uri: http://127.0.0.1:8697/auth/oauth/authorize
+    resource:
+      token-info-uri: http://127.0.0.1:8697/auth/oauth/check_token

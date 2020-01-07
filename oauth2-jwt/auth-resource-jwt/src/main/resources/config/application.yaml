@@ -1,0 +1,21 @@
+server:
+  port: 8698
+spring:
+  application:
+    name: auth-resource-jwt
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+security:
+  oauth2:
+    client:
+      client-id: client_jwt
+      client-secret: secret_jwt
+      grant-type: authorization_code
+      scope: ALL
+      access-token-uri: http://127.0.0.1:8697/auth/oauth/token
+      user-authorization-uri: http://127.0.0.1:8697/auth/oauth/authorize
+    resource:
+      id: auth-resource_jwt
+      token-info-uri: http://127.0.0.1:8697/auth/oauth/check_token
