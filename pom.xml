@@ -20,6 +20,7 @@
         <module>admin</module>
         <module>security</module>
         <module>oauth2</module>
+        <module>oauth2-jwt</module>
     </modules>
 
     <parent>
