@@ -14,8 +14,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http
             .csrf().disable()
             .authorizeRequests()
-            .anyRequest()
-            .authenticated()
+            .antMatchers("/assets/**").permitAll()
+            .anyRequest().authenticated()
         .and()
             //说明：这里和官网不同的是，因为默认端口为/login，所以我这里直接放开login.html就可以了不用配置loginProcessingUrl
             //在说明一点，这里是采用的本地页面的。如果前后端分开，请配具体的登录接口。

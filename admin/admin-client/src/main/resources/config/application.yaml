@@ -11,6 +11,13 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8670/eureka/ # 实际开发中建议使用域名的方式
+# 存在 context-path时使用
+#  instance:
+#    home-page-url-path: ${server.servlet.context-path}
+#    status-page-url-path: ${server.servlet.context-path}/actuator/info
+#    health-check-url-path: ${server.servlet.context-path}/actuator/health
+#    metadata-map:
+#      management.context-path: ${server.servlet.context-path}/actuator
 management:
   endpoints:
     web:
